@@ -1,23 +1,23 @@
 const produtos = [
     {
         nome: 'Banana',
-        preco: 2,
+        preco: 4,
         secao: 'Hortifruti',
-        categoria: 'fruta',
+        categoria: 'Fruta',
         img: "./src/img/banana.png"
     },
     {
         nome: 'Morango',
-        preco: 2,
+        preco: 10,
         secao: 'Hortifruti',
-        categoria: 'fruta',
+        categoria: 'Fruta',
         img: './src/img/morango.png'
     },
     {
         nome: 'Maçã',
-        preco: 2,
+        preco: 12,
         secao: 'Hortifruti',
-        categoria: 'fruta',
+        categoria: 'Fruta',
         img: './src/img/maça.png'
     },
     {
