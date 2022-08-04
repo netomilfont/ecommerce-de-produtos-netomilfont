@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/css/reset.css" />
-    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src/css/mbstyle.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fontawesome.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,32 +51,57 @@
           </button>
         </div>
       </section>
-      <section class="priceContainer">
+      <!-- <section class="priceContainer">
         <div>
             <img src="./src/img/alert-circle.png" alt="exclamação de alerta">
             <p>Valor total dos produtos da sessão selecionada</p>
         </div>
         <span class="price">R$ 0.00</span>
-      </section>
+      </section> -->
       <!-- CONTAINER DE PRODUTOS -->
-      <section class="containerVitrine">
-        <div class="containerListaProdutos">
-         <ul>
-                    <!-- Utilize esse item html como template para a construção da lista de produtos
-                    
-                    Você pode remover esses comentários depois que fizer a construção pelo DOM -->
-                    
-            
-                    <!-- <li>
-                        <img src="./src/img/maça.png" alt="Imagem maçã">
-                        <h3>Maçã</h3>
-                        <span>Hortifruti</span>
-                        <p>R$ 2.00</p>
-                    </li> -->
-                    
-                </ul>
-        </div>
-      </section>
+      <div class="container">
+        <section class="containerVitrine">
+          <div class="containerListaProdutos">
+           <ul class="productsList">
+            <!-- Utilize esse item html como template para a construção da lista de produtos
+                      
+              Você pode remover esses comentários depois que fizer a construção pelo DOM -->                           
+              <!-- <li>
+                <img src="./src/img/maça.png" alt="Imagem maçã">
+                <h3>Maçã</h3>
+                <span>Hortifruti</span>
+                <p>R$ 2.00</p>
+              </li> -->   
+            </ul>
+          </div>
+        </section>
+        <aside>
+          <div class="carrinho">
+            <div class="carrinhoBar">
+              <svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.6567 7.84375C12.9146 7.84375 13.1489 7.67969 13.2192 7.42188L14.3208 2.54688C14.3911 2.19531 14.1333 1.84375 13.7583 1.84375H4.5708L4.35986 0.8125C4.28955 0.554688 4.05518 0.34375 3.79736 0.34375H1.40674C1.07861 0.34375 0.844238 0.601562 0.844238 0.90625V1.28125C0.844238 1.60938 1.07861 1.84375 1.40674 1.84375H3.02393L4.68799 9.90625C4.26611 10.1406 3.98486 10.5859 4.03174 11.125C4.05518 11.7812 4.59424 12.3203 5.27393 12.3438C6.02393 12.3906 6.65674 11.7812 6.65674 11.0312C6.65674 10.6797 6.49268 10.3516 6.2583 10.0938H11.1567C10.9224 10.3516 10.7583 10.7031 10.7817 11.0781C10.7817 11.7812 11.3677 12.3438 12.0708 12.3438C12.7974 12.3672 13.4067 11.7812 13.4067 11.0312C13.4067 10.5156 13.1021 10.0703 12.6567 9.85938L12.7739 9.29688C12.8677 8.94531 12.5864 8.59375 12.2349 8.59375H5.95361L5.78955 7.84375H12.6567ZM10.2896 4.84375C10.5239 4.84375 10.6646 5.14844 10.4771 5.33594L8.90674 6.90625C8.78955 7.02344 8.62549 7.02344 8.5083 6.90625L6.93799 5.33594C6.75049 5.14844 6.89111 4.84375 7.12549 4.84375H8.15674V3.4375C8.15674 3.29688 8.27393 3.15625 8.43799 3.15625H9.00049C9.14111 3.15625 9.28174 3.29688 9.28174 3.4375V4.84375H10.2896Z" fill="white"/>
+                </svg>
+              <p>Carrinho</p>
+            </div>
+            <div class="carrinhoItens">
+              <ul class="carProduct">
+                <li class="nothingInTheCart">
+                  <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4.49999L6 12.5V40.5C6 41.5609 6.42143 42.5783 7.17157 43.3284C7.92172 44.0786 8.93913 44.5 10 44.5H38C39.0609 44.5 40.0783 44.0786 40.8284 43.3284C41.5786 42.5783 42 41.5609 42 40.5V12.5L36 4.49999H12Z" stroke="#868E96" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 12.5H42" stroke="#868E96" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M32.0003 20.5001C32.0003 22.6218 31.1574 24.6566 29.6572 26.1569C28.1569 27.6572 26.122 28.5001 24.0003 28.5001C21.8786 28.5001 19.8437 27.6572 18.3435 26.1569C16.8432 24.6566 16.0003 22.6218 16.0003 20.5001" stroke="#868E96" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  <p>Por enquanto não temos produtos no carrinho</p>
+                </li>
+              </ul>
+            </div>
+            <div class="totalCompras">
+              <p class="quantidadeCompras">Quantidade: <span class="quantity"></span></p>
+              <p class="totalCompras">Total: <span class="total"></span></p>
+            </div>
+          </div>
+        </aside>
+      </div>
     </main>
     <script src="src/js/dataProdutos.js"></script>
     <script src="src/js/script.js"></script>
