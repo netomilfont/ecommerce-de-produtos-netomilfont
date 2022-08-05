@@ -179,7 +179,7 @@ main {
 /* CONTAINER DE PRODUTOS */
 
 .containerListaProdutos {
-    width: 100vw;
+    width: 95vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,7 +199,7 @@ main {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    min-width: 100%;
+    min-width: 80%;
 
 }
     
@@ -208,7 +208,6 @@ main {
     transition: ease-in-out 0.1s;
     margin-bottom: 30px;
     margin-right: 25px;
-    min-width: 65%;
 }
     
 .containerListaProdutos ul li:hover {
@@ -254,6 +253,7 @@ main {
 
 .infoProduct {
     display: flex;
+    flex-direction: column;
 }
 
 .titleAndPrice {
@@ -299,7 +299,7 @@ main {
 .containerListaProdutos ul li div {
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+    /* padding: 5px; */
 }
     
 .container {
@@ -383,24 +383,31 @@ main {
     font-size: 14px;
     font-weight: 500;
     color: #000000;
+    margin-bottom: 15px;
 }
 
 .carProduct span {
     font-weight: 400;
     font-size: 12px;
     color: #868E96;
+    margin-bottom: 15px;
+
 }
 
 .carProduct p {
     font-weight: 400;
     font-size: 14px;
     color: #212529;
+
 }
-.carProduct .titleAndPrice{
+.carProduct ol li{
     display: flex;
     flex-direction: column;
     gap: 9px;
     margin-left: 12px;
+    font-size: 0.75rem;
+    max-height: 50px;
+    color: red;
 }
 
 .carProduct img {
@@ -412,9 +419,11 @@ main {
 
 .carProduct .infoProduct {
     display: flex;
+    flex-direction: row;
     width: 280px;
     align-items: flex-start;
     justify-content: space-between;
+    padding: 0px 10px;
 }
 
 .carProduct li .divButton {
@@ -422,6 +431,19 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     
+}
+
+.carProduct .buyButton {
+    border: 1.5px solid rgba(18, 184, 134, 0.05);
+    background: rgba(18, 184, 134, 0.05);
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #12b886;
+    font-size: 0.7rem;
+    font-family: "Poppins", sans-serif;
+    flex-wrap: nowrap;
 }
     
 .nothingInTheCart {
@@ -461,4 +483,81 @@ main {
 .hiddenComponentes {
     display: none;
 }
- 
+
+.divImage {
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .filtersContainer {
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 20px;
+        width: 90%;
+    }
+
+    #botoesContainer {
+        justify-content: flex-start;
+    }
+
+    #botoesContainer button {
+        min-width: 20%;
+    }
+
+    .containerBuscaPorNome {
+        justify-content: center;
+        margin-top: 0px;
+        margin-bottom: 6px;
+        width: 50%;
+    }
+    .container {
+        flex-direction: row;
+        width: 90%;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    .containerVitrine {
+        max-width: 90%;
+
+    }
+    .containerListaProdutos {
+        overflow-x:hidden ;
+        flex-wrap: nowrap;
+        height: 100%;
+        justify-content: flex-start;
+    }
+
+    .containerListaProdutos ul {
+        flex-wrap: wrap;
+        flex-direction: row;
+        max-width: 90%;
+
+    }
+
+    .containerListaProdutos ul li {
+        width: 28%;
+    }
+
+    .productsList {
+        flex-wrap: nowrap;
+    }
+
+    .hiddenComponentes {
+        display: flex;
+    }
+
+    .container section {
+        width: 65%;
+    }
+
+    .container aside {
+        width: 35%;
+        margin-top: 0;
+        margin-right: 20px;
+    }
+
+    .containerListaProdutos ul li ol li {
+        width: 60%;
+    }
+
+}

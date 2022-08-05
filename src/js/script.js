@@ -3,17 +3,15 @@ let ulProducts = document.querySelector(".productsList")
 let ulCarProduct = document.querySelector(".carProduct")
 let cartShopping = []
 
-function listCards (array, section) {
+function listCards (array) {
     
-    section.innerHTML = ''
+    ulProducts.innerText = ''
 
     array.forEach((element) => {
 
-        let product = element
+        let cardProduct = createCardProduct(element)
         
-        let cardProduct = createCardProduct(product)
-        
-        section.appendChild(cardProduct)
+        ulProducts.appendChild(cardProduct)
 
     })
     
@@ -21,37 +19,27 @@ function listCards (array, section) {
 
 listCards(produtos, ulProducts)
 
-function searchSpecificCard (array, section) {
-
-    let specificCardMETODO = array.filter((element) => element.secao == section)
-
-    return specificCardMETODO
-}
-
-
 buttonNavbar.addEventListener("click", (event) => {
 
     let btn = event.target
     
     if(btn.tagName == "BUTTON" && btn.innerText == 'Hortifruti') {
 
-        let section = 'Hortifruti'
-        specificCard = searchSpecificCard(produtos, section)
-    
-        listCards(specificCard)
+        const hortiArray = produtos.filter(element => element.secao == 'Hortifruti')
+
+        listCards(hortiArray)
 
     } else if(btn.tagName == "BUTTON" && btn.innerText == 'Panificadora') {
 
-        let section = 'Panificadora'
-        specificCard = searchSpecificCard(produtos, section)
+        const paniArray = produtos.filter(element => element.secao == 'Panificadora')
 
-        listCards(specificCard)
+        listCards(paniArray)
 
     } else if(btn.tagName == "BUTTON" && btn.innerText == 'Laticínios') {
 
-        let section = 'Laticínio'
-        specificCard = searchSpecificCard(produtos, section)
-        listCards(specificCard)
+        const latiArray = produtos.filter(element => element.secao == 'Laticínio')
+
+        listCards(latiArray)
 
     } else if(btn.tagName == "BUTTON" && btn.innerText == 'Todos Produtos') {
         
@@ -61,21 +49,21 @@ buttonNavbar.addEventListener("click", (event) => {
 
 function createCardProduct (array) {
 
-    let id = array.id
+    const id = array.id
 
-    let ul = document.querySelector("ul")
-    let li = document.createElement("li")
-    let divImg = document.createElement("div")
-    let img = document.createElement("img")
-    let div1 = document.createElement("div")
-    let div = document.createElement("div")
-    let h3 = document.createElement("h3")
-    let span = document.createElement("span")
-    let ol = document.createElement("ol")
-    let li2 = document.createElement("li")
-    let p = document.createElement("p")
-    let div3 = document.createElement("div")
-    let button = document.createElement("button")
+    const ul = document.querySelector("ul")
+    const li = document.createElement("li")
+    const divImg = document.createElement("div")
+    const img = document.createElement("img")
+    const div1 = document.createElement("div")
+    const div = document.createElement("div")
+    const h3 = document.createElement("h3")
+    const span = document.createElement("span")
+    const ol = document.createElement("ol")
+    const li2 = document.createElement("li")
+    const p = document.createElement("p")
+    const div3 = document.createElement("div")
+    const button = document.createElement("button")
 
     if(id != undefined){
 
@@ -90,13 +78,14 @@ function createCardProduct (array) {
     button.innerText = 'Comprar'
     button.classList.add("buyButton")
     li2.classList.add("hiddenComponentes")
+    divImg.classList.add("divImage")
     div1.classList.add("infoProduct")
     div.classList.add("titleAndPrice")
     div3.classList.add("divButton")
     
-    div3.append(button)
+    div3.append(p, button)
     ol.append(li2)
-    div.append(h3, span, ol, p)
+    div.append(h3, span, ol)
     div1.append(div, div3)
     divImg.append(img)
     li.append(divImg, div1)
@@ -126,7 +115,7 @@ function searchProduct (searchValue) {
 
     let resultSearch = produtos.filter((element) => {
 
-        if(searchValue == element.nome || searchValue == element.categoria || searchValue == element.secao) {
+        if(searchValue.toLowerCase().trim() == element.nome.toLowerCase() || searchValue.toLowerCase().trim() == element.categoria.toLowerCase() || searchValue.toLowerCase().trim() == element.secao.toLowerCase()) {
 
             return element
         } else if(searchValue == '') {
@@ -166,14 +155,15 @@ ulProducts.addEventListener("click",(event) => {
     
     if(btnBuy.tagName == "BUTTON") {
     
-        let idProduct = btnBuy.id
+        const idProduct = btnBuy.id
     
-        let product = produtos.find(function(product) {
+        const product = produtos.find(function(product) {
             if(product.id == idProduct) {
                 
                 return product
             }
         })
+
         addCart(product)
     }
 })
@@ -184,8 +174,7 @@ function addCart (product) {
 
         cartShopping.push(product)
 
-        listCards(cartShopping, ulCarProduct)
-        createCartTotal(cartShopping)
+        listCart(cartShopping, ulCarProduct)
     }
     
 }
@@ -196,22 +185,79 @@ ulCarProduct.addEventListener("click", (event) => {
 
     if(btnRemove.tagName == 'BUTTON') {
 
-        let id = btnRemove.id
+        const id = btnRemove.id
 
-        let index = cartShopping.findIndex((produto) => produto.id == id)
+        const index = cartShopping.findIndex((produto) => produto.id == id)
         
         cartShopping.splice(index, 1)
 
-        createCartTotal(cartShopping)
-        listCards(cartShopping, ulCarProduct)
     }
-
+    
+    listCart(cartShopping, ulCarProduct)
+    createCartTotal(cartShopping)
 })
 
-// function createCartElement () {
+function createCartElement (array) {
 
-//     let ul = document.querySelector(".carProduct")
-//     let li = document.createElement("li")
-//     let 
+    const id = array.id
 
-// }
+    const li = document.createElement("li")
+    const divImg = document.createElement("div")
+    const img = document.createElement("img")
+    const div1 = document.createElement("div")
+    const div = document.createElement("div")
+    const h3 = document.createElement("h3")
+    const span = document.createElement("span")
+    const ol = document.createElement("ol")
+    const li2 = document.createElement("li")
+    const p = document.createElement("p")
+    const div3 = document.createElement("div")
+    const button = document.createElement("button")
+
+    if(id != undefined){
+
+        button.id =  id
+    }
+
+    img.src = array.img
+    h3.innerText = array.nome
+    span.innerText = array.categoria
+    p.innerText = `R$ ${array.preco}`
+    li2.innerText = array.componentes
+    button.innerText = 'x'
+    button.classList.add("buyButton")
+    li2.classList.add("hiddenComponentes")
+    div1.classList.add("infoProduct")
+    div.classList.add("titleAndPrice")
+    div3.classList.add("divButton")
+    
+    
+    div3.append(button)
+    ol.append(li2)
+    div.append(h3, span, ol, p)
+    div1.append(div, div3)
+    divImg.append(img)
+    li.append(divImg, div1)
+    ulCarProduct.append(li)
+
+    return li
+
+}
+
+console.log(cartShopping)
+
+function listCart (array, section) {
+
+    section.innerHTML = ''
+
+    array.forEach((element) => {
+        
+        const cardProduct = createCartElement(element)
+        
+        section.appendChild(cardProduct)
+        
+        createCartTotal(cartShopping)
+
+    })
+    
+}
